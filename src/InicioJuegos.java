@@ -10,9 +10,6 @@ public class InicioJuegos {
     Jugable juego2 = new AdivinaNumeroPar(5);
     Jugable juego3 = new AdivinaNumeroImpar(5);
     
-    System.out.println(juego1.muestraNombre());
-    System.out.println(juego2.muestraNombre());
-    System.out.println(juego3.muestraNombre());
 
   }
 

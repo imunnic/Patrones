@@ -18,7 +18,7 @@ public class AdivinaNumero extends JuegoConVidas {
   }
 
   public AdivinaNumero(int vidas) {
-    this(vidas, generaNumero());
+    this(vidas, GeneradorNumerosAleatorios.generarNumero());
   }
 
   public boolean validaNumero(int numero) {
@@ -51,9 +51,7 @@ public class AdivinaNumero extends JuegoConVidas {
     }
   }
 
-  private static int generaNumero() {
-    return (int) (Math.random() * 10);
-  }
+ 
   
 //TODO generar numero aleatorio
 

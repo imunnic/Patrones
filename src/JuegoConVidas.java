@@ -1,5 +1,5 @@
 
-public abstract class JuegoConVidas implements Jugable {
+public abstract class JuegoConVidas implements Jugable, ConRecord {
   private String nombre;
   private String descripcion;
   private int vidas;
@@ -30,7 +30,7 @@ public abstract class JuegoConVidas implements Jugable {
     return vidasIniciales;
   }
   
-  public String getNombre() {
+  private String getNombre() {
     return nombre;
   }
   
@@ -81,6 +81,7 @@ public abstract class JuegoConVidas implements Jugable {
     setVidas(getVidasIniciales());
   }
 
+  @Override
   public void actualizaRecord() {
     if (getVidas() == getRecord()) {
       System.out.println("Se ha alcanzado el record");
@@ -97,8 +98,8 @@ public abstract class JuegoConVidas implements Jugable {
   }
 
   @Override
-  public void muestraInfo() {
-    System.out.println(getDescripcion());
+  public String muestraInfo() {
+    return getDescripcion();
     
   }
   

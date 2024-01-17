@@ -2,7 +2,7 @@
 public class AdivinaNumeroImpar extends AdivinaNumero {
 
   public AdivinaNumeroImpar(int vidas) {
-    this(vidas, generaNumeroImpar());
+    this(vidas, GeneradorNumerosAleatorios.generaNumeroImpar());
   }
   
   public AdivinaNumeroImpar(int vidas, int numeroAdivinar) {
@@ -19,15 +19,5 @@ public class AdivinaNumeroImpar extends AdivinaNumero {
     //TODO implementar notificar que el número no es impar
     return super.validaNumero(numero) && (numero % 2 != 0);
   }
-  
-  private static int generaNumeroImpar() {
-    int numero;
-    do {
-      numero = (int) (Math.random() * 10);
-    } while (numero % 2 == 0);
-    return numero;
-  }
-  
-  
-  //TODO cambiar métodos nombre y descripción, extraer interfaz
+
 }

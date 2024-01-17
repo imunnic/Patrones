@@ -2,7 +2,7 @@
 public class AdivinaNumeroPar extends AdivinaNumero {
 
   public AdivinaNumeroPar(int vidas) {
-    this(vidas, generaNumeroPar());
+    this(vidas, GeneradorNumerosAleatorios.generaNumeroPar());
   }
   public AdivinaNumeroPar(int vidas, int numeroAdivinar) {
     super(vidas, numeroAdivinar);
@@ -19,13 +19,8 @@ public class AdivinaNumeroPar extends AdivinaNumero {
     //TODO implementar notificar que el número no es par
     return super.validaNumero(numero) && (numero % 2 == 0);
   }
+
   
-  private static int generaNumeroPar() {
-    int numero;
-    do {
-      numero = (int) (Math.random() * 10);
-    } while (numero % 2 != 0);
-    return numero;
-  }
+  
   
 }
