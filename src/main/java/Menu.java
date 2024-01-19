@@ -1,3 +1,4 @@
+package main.java;
 
 public class Menu {
   public JuegosReunidos juegos;
