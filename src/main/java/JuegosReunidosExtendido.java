@@ -1,19 +1,14 @@
 package main.java;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class JuegosReunidosExtendido extends JuegosReunidos{
+  private final String PATH = "./../resources/words.txt";;
   
   public JuegosReunidosExtendido() {
     super();
-    List<String> dicc = new ArrayList<String>();
-    dicc.add("Ignacio");
-    dicc.add("Rodrigo");
-    dicc.add("Xavi");
-    dicc.add("Justo");
-    dicc.add("Vicente");
+    List<String> dicc = MyInput.leeFichero(PATH);
     addJuego(new JuegoAhorcadoIngles(5, dicc));
   }
 

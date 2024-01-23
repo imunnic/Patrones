@@ -45,7 +45,6 @@ public class JuegoAhorcadoIngles extends JuegoConVidas{
   private void seleccionarPalabra() {
     palabraAdivinar = new StringBuffer(this.diccionario
         .get(GeneradorNumerosAleatorios.generarNumeroAletorioMax(diccionario.size())+1));
-    System.out.println(palabraAdivinar);
     guiones = new StringBuffer(palabraAdivinar.toString());
   }
   
@@ -58,7 +57,6 @@ public class JuegoAhorcadoIngles extends JuegoConVidas{
   
   @Override
   public boolean juega(String valor) {
-    System.out.println(palabraAdivinar);
     char caracter = valor.charAt(0); 
     if (existeCaracter(caracter)) {
       System.out.println("Ha acertado");
@@ -66,8 +64,13 @@ public class JuegoAhorcadoIngles extends JuegoConVidas{
     }
     else {
       System.out.println("Ha fallado");
+      System.out.println("Le quedan " + getVidas() + " vidas.");
       quitaVida();
     }
+    if (palabraAdivinar.toString().equals(guiones.toString())) {
+      System.out.println("Has adivinado la palabra!!");
+    }
+    System.out.println("Introduzca una letra");
     return palabraAdivinar.toString().equals(guiones.toString());
   }
   

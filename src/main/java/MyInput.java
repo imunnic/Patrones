@@ -103,6 +103,7 @@ public static float readFloat() {
             FileOutputStream fos = new FileOutputStream(nombreFichero) ;
             ObjectOutputStream oos = new ObjectOutputStream(fos) ;
             oos.writeObject(a) ;
+            oos.close();//añadido personal
         } catch (Exception e) {
             System.err.println("Problem: "+e) ;
         }

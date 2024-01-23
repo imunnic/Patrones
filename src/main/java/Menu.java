@@ -13,6 +13,7 @@ public class Menu {
     game.muestraNombre();
     game.muestraInfo();
     String respuesta;
+    System.out.println("Introduzca el valor a adivinar");
     do {
       respuesta = MyInput.readString();
     } while (!game.juega(respuesta));
