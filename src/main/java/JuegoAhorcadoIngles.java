@@ -58,20 +58,17 @@ public class JuegoAhorcadoIngles extends JuegoConVidas{
   
   @Override
   public boolean juega(String valor) {
-    System.out.println("Le quedan " + getVidas() + " vidas.");
-    System.out.println("De momento ha adivinado:");
-    muestraGuiones();
     System.out.println(palabraAdivinar);
-    System.out.println("Introduzca una letra");
     char caracter = valor.charAt(0); 
     if (existeCaracter(caracter)) {
       System.out.println("Ha acertado");
+      muestraGuiones();
     }
     else {
       System.out.println("Ha fallado");
       quitaVida();
     }
-    return (getVidas() < 0 | palabraAdivinar.equals(guiones));
+    return palabraAdivinar.toString().equals(guiones.toString());
   }
   
   

@@ -18,10 +18,12 @@ public class InicioJuegos {
     dicc.add("Justo");
     dicc.add("Vicente");
     JuegoAhorcadoIngles juego = new JuegoAhorcadoIngles(5, dicc);
-    boolean fin = true;
+    String respuesta = "";
     do {
-      fin = juego.juega(null);
-    } while (!fin);
+      System.out.println("Tiene " + juego.getVidas() + "vidas");
+      System.out.println("Introduzca el valor a adivinar");
+      respuesta = MyInput.readString();
+    } while (!juego.juega(respuesta));
     
     
     
