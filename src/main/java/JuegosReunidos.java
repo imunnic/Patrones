@@ -15,7 +15,7 @@ public class JuegosReunidos {
     return VIDASPORDEFECTO;
   }
   
-  private void setJuegos(List<Jugable> juegos) {
+  protected void setJuegos(List<Jugable> juegos) {
     this.juegos = juegos;
   }
   
@@ -24,11 +24,6 @@ public class JuegosReunidos {
     juegos.add(new AdivinaNumero(getVIDASPORDEFECTO()));
     juegos.add(new AdivinaNumeroPar(getVIDASPORDEFECTO()));
     juegos.add(new AdivinaNumeroImpar(getVIDASPORDEFECTO()));
-  }
-  
-  public JuegosReunidos(Jugable... juegos) {
-    setJuegos(new ArrayList<Jugable>());
-    Arrays.asList(juegos).forEach(a -> addJuego(a));
   }
   
   public void listarJuegos() {

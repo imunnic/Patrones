@@ -1,3 +1,4 @@
+package main.java;
 
 public class AdivinaNumeroPar extends AdivinaNumero {
 
@@ -11,16 +12,19 @@ public class AdivinaNumeroPar extends AdivinaNumero {
         + "número al azar que sea par. Cuando falle se quitará una vida hasta llegar a 0.");
 
   }
+  
   /**
    * Modifica el validaNumero de AdivinaNumero para que solo valgan números pares
    */
   @Override
   public boolean validaNumero(int numero) {
-    //TODO implementar notificar que el número no es par
     return super.validaNumero(numero) && (numero % 2 == 0);
   }
 
-  
-  
+  @Override
+  public void reiniciaPartida() {
+    super.reiniciaPartida();
+    setNumero(GeneradorNumerosAleatorios.generaNumeroPar());
+  }
   
 }

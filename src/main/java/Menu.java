@@ -1,10 +1,11 @@
 package main.java;
 
 public class Menu {
-  public JuegosReunidos juegos;
+  public JuegosReunidosExtendido juegos;
 
   public Menu() {
-    juegos = new JuegosReunidos();
+    juegos = new JuegosReunidosExtendido();
+    //TODO convertir a extendido
   }
 
   public void jugar(Jugable game) {
@@ -13,7 +14,6 @@ public class Menu {
     game.muestraInfo();
     String respuesta;
     do {
-      System.out.println("Introduzca un numero del 0 al 10:");
       respuesta = MyInput.readString();
     } while (!game.juega(respuesta));
   }

@@ -1,3 +1,4 @@
+package main.java;
 
 public class GeneradorNumerosAleatorios {
   public static int generarNumero() {
@@ -18,5 +19,9 @@ public class GeneradorNumerosAleatorios {
       numero = (int) (Math.random() * 10);
     } while (numero % 2 == 0);
     return numero;
+  }
+  
+  public static int generarNumeroAletorioMax(int maximo) {
+    return (int) (Math.random() * maximo);
   }
 }

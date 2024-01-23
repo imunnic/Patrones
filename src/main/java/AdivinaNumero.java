@@ -1,3 +1,5 @@
+package main.java;
+
 public class AdivinaNumero extends JuegoConVidas {
   private int numero;
 
@@ -29,7 +31,13 @@ public class AdivinaNumero extends JuegoConVidas {
       return false;
     }
   }
-
+  
+  @Override
+  public void reiniciaPartida() {
+    super.reiniciaPartida();
+    setNumero(GeneradorNumerosAleatorios.generarNumero());
+  }
+  
   @Override
   public boolean juega(String valor) {
     int numero = Integer.parseInt(valor);

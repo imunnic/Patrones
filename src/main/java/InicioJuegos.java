@@ -1,14 +1,29 @@
+package main.java;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class InicioJuegos {
   public static void main(String[] args) {
 
 //    Menu menu = new Menu();
-//    // menu.juegos.getJuegos().forEach(Jugable::muestraInfo);
+//    menu.mostrarOpciones();
 //    menu.ejecuta();
-    Jugable juego1 = new AdivinaNumero(5);
-    Jugable juego2 = new AdivinaNumeroPar(5);
-    Jugable juego3 = new AdivinaNumeroImpar(5);
+    List<String> dicc = new ArrayList<String>();
+    dicc.add("Ignacio");
+    dicc.add("Rodrigo");
+    dicc.add("Xavi");
+    dicc.add("Justo");
+    dicc.add("Vicente");
+    JuegoAhorcadoIngles juego = new JuegoAhorcadoIngles(5, dicc);
+    boolean fin = true;
+    do {
+      fin = juego.juega(null);
+    } while (!fin);
+    
+    
     
 
   }

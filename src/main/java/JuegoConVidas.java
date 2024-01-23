@@ -1,3 +1,4 @@
+package main.java;
 
 public abstract class JuegoConVidas implements Jugable, ConRecord {
   private String nombre;
@@ -22,7 +23,7 @@ public abstract class JuegoConVidas implements Jugable, ConRecord {
     return record;
   }
 
-  private int getVidas() {
+  public int getVidas() {
     return vidas;
   }
 

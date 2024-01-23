@@ -1,3 +1,4 @@
+package main.java;
 
 public class AdivinaNumeroImpar extends AdivinaNumero {
 
@@ -18,6 +19,13 @@ public class AdivinaNumeroImpar extends AdivinaNumero {
   public boolean validaNumero(int numero) {
     //TODO implementar notificar que el número no es impar
     return super.validaNumero(numero) && (numero % 2 != 0);
+  }
+  
+  @Override
+  public void reiniciaPartida() {
+    // TODO Auto-generated method stub
+    super.reiniciaPartida();
+    setNumero(GeneradorNumerosAleatorios.generaNumeroImpar());
   }
 
 }
