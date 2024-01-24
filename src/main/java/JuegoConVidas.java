@@ -1,6 +1,8 @@
 package main.java;
 
-public abstract class JuegoConVidas implements Jugable, ConRecord {
+import java.io.Serializable;
+
+public abstract class JuegoConVidas implements Jugable, ConRecord, Serializable {
   private String nombre;
   private String descripcion;
   private int vidas;
@@ -31,7 +33,8 @@ public abstract class JuegoConVidas implements Jugable, ConRecord {
     return vidasIniciales;
   }
   
-  private String getNombre() {
+  @Override
+  public String getNombre() {
     return nombre;
   }
   
@@ -67,6 +70,9 @@ public abstract class JuegoConVidas implements Jugable, ConRecord {
     System.out.println(getVidas());
   }
 
+  /**
+   * @return boleano que indica si quedan vidas o no
+   */
   public boolean quitaVida() {
     setVidas(getVidas() - 1);
     if (getVidas() > 0) {
@@ -93,13 +99,7 @@ public abstract class JuegoConVidas implements Jugable, ConRecord {
   }
 
   @Override
-  public String muestraNombre() {
-    return getNombre();
-    
-  }
-
-  @Override
-  public String muestraInfo() {
+  public String getInfo() {
     return getDescripcion();
     
   }

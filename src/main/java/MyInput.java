@@ -28,7 +28,13 @@ public static String readString() {
      * @return retorna un número entero de precisión simple
      */
 public static int readInt(){
-    return Integer.parseInt(readString()); }
+  try {
+    return Integer.parseInt(readString()); 
+    } catch (NumberFormatException e) {
+    System.err.println("Numero con formato erróneo, introduzcalo de nuevo");
+    return readInt();
+    }
+}
 // Lee un dato tipo double  desde el teclado
 
     /**

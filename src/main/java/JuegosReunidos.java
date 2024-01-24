@@ -1,9 +1,10 @@
 package main.java;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JuegosReunidos {
+public class JuegosReunidos implements Serializable{
   private List<Jugable> juegos;
   private final int VIDASPORDEFECTO = 5;
   
@@ -24,12 +25,13 @@ public class JuegosReunidos {
     juegos.add(new AdivinaNumero(getVIDASPORDEFECTO()));
     juegos.add(new AdivinaNumeroPar(getVIDASPORDEFECTO()));
     juegos.add(new AdivinaNumeroImpar(getVIDASPORDEFECTO()));
+    
   }
   
   public void listarJuegos() {
     int n = 1;
     for (Jugable jugable : juegos) {
-      System.out.println("Introduce " + n +" si quieres jugar a " + jugable.muestraNombre());
+      System.out.println("Introduce " + n +" si quieres jugar a " + jugable.getNombre());
       n = n + 1;
     }
   }

@@ -4,11 +4,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class JuegosReunidosExtendido extends JuegosReunidos{
-  private final String PATH = "./../resources/words.txt";;
-  
+
+//  private List<String> words = Arrays.asList("Ignacio", "Rodrigo", "Xavi", "Justo", "Miguel", "Vicente");
+  private List<String> words = MyInput.leeFichero("./resources/words.txt");
   public JuegosReunidosExtendido() {
     super();
-    List<String> dicc = MyInput.leeFichero(PATH);
+    List<String> dicc = words;
     addJuego(new JuegoAhorcadoIngles(5, dicc));
   }
 

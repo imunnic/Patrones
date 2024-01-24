@@ -6,10 +6,6 @@ public class InicioJuegos {
     Menu menu = new Menu();
     menu.ejecuta();
 
-    
-    
-    
-
   }
 
 }

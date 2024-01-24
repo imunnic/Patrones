@@ -1,21 +1,58 @@
 package main.java;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 public class Menu {
   public JuegosReunidosExtendido juegos;
+  private final String PATH = "./resources/game.dat";
 
   public Menu() {
-    juegos = new JuegosReunidosExtendido();
-    //TODO convertir a extendido
+    File juegosGuardados = new File(PATH);
+    cargarJuegos(juegosGuardados);
   }
 
+  public void guardarJuegos(File gameFile) {
+    try {
+      FileOutputStream fos = new FileOutputStream(gameFile);
+      ObjectOutputStream oos = new ObjectOutputStream(fos);
+      oos.writeObject(juegos);
+      oos.flush();
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+      System.err.println("No se ha guardado el juego");
+    } 
+  }
+  
+  public void cargarJuegos(File gameFile) {
+    if (gameFile.exists()) {
+      try {
+        FileInputStream fis = new FileInputStream(gameFile);
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        juegos = (JuegosReunidosExtendido) ois.readObject();
+      } catch (Exception e) {
+        e.printStackTrace();
+        juegos = new JuegosReunidosExtendido();
+      }
+    } else {
+      juegos = new JuegosReunidosExtendido();    
+    }
+  }
+  
   public void jugar(Jugable game) {
     game.reiniciaPartida();
-    game.muestraNombre();
-    game.muestraInfo();
+    System.out.println("Ha elegido el juego " + game.getNombre());
+    System.out.println(game.getInfo());
     String respuesta;
-    System.out.println("Introduzca el valor a adivinar");
     do {
-      respuesta = MyInput.readString();
+      do {
+        game.preview();
+        respuesta = MyInput.readString();
+      } while (!game.validaFormato(respuesta));
     } while (!game.juega(respuesta));
   }
 
@@ -43,6 +80,7 @@ public class Menu {
     do {
       Jugable juego = juegos.recuperarJuego(eligeOpcion());
       jugar(juego);
+      guardarJuegos(new File(PATH));
       System.out.println("¿Desea jugar otra vez? s/n");
       respuesta = MyInput.readString().toLowerCase();
     } while (respuesta.equals("s"));

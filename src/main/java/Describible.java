@@ -1,6 +1,6 @@
 package main.java;
 
 public interface Describible {
-  String muestraNombre();
-  String muestraInfo();
+  String getNombre();
+  String getInfo();
 }
